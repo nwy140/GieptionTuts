@@ -2,19 +2,31 @@ public class Main {
 
 	public static void main(String[] args) {
 
-	Apple apple = new Apple();
+		
+	Book bookman = new Book(" C++ is the best");
+	bookman.tellStory();
+
+
+/*	Apple apple = new Apple();
 	Apple apple1 = new Apple();
 	
 	apple.isFresh = true;
+	apple.isRed = true;
 	apple.simpleMessage();
+	
 	
 	System.out.println(apple.isFresh);
 	verifyFresh(apple.isFresh);
 	
+	apple.compare(apple.isFresh,apple.isRed);
+	
+	System.out.println("\n");
 	
 	apple1.simpleMessage();
 	System.out.println(apple1.isFresh);
 	verifyFresh(apple1.isFresh);
+	
+	apple1.compare(apple1.isFresh,apple1.isRed);
 
 	}
 	
@@ -26,8 +38,7 @@ public class Main {
 			System.out.println("Bad fruit");
 		}
 	}
-	
-	
+	*/
 	
 	
 	/*
@@ -68,4 +79,6 @@ public class Main {
 	}
 	*/
 	
+
+	}
 }
