@@ -4,9 +4,11 @@ public class Main {
 
 	Book BookBoy = new Book();
 	BookBoy.tellStory();
+	
 		
 	Book bookman = new Book(" Unreal Engine and C++ are the best");
 	bookman.tellStory();
+	bookman.showPriceAndLocation(bookman.getPrice(), bookman.getLocation());
 	
 	int size = 10;
 	

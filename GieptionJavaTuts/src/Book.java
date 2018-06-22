@@ -1,7 +1,8 @@
-public class Book {
+public class Book extends Stationery{
 	private String bookName;
 	
 	public Book() {
+		super();
 		System.out.println("New Book");
 	}
 	
@@ -22,5 +23,9 @@ public class Book {
 	
 	public void tellStory(){
 		System.out.println("My Favourite book is " + getBook());
+	}
+	
+	public void showPriceAndLocation(double price, String location) {
+		System.out.println("This book cost RM" + price + "and it is located at "+location);
 	}
 }
