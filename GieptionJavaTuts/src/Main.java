@@ -1,8 +1,38 @@
 public class Main {
 
-	private static String name = "Global Variable";  // static, can be called anywhere in the class,
-														// basically .h header file of a C++ class
+	public static void main(String[] args) {
 
+	Apple apple = new Apple();
+	Apple apple1 = new Apple();
+	
+	apple.isFresh = true;
+	apple.simpleMessage();
+	
+	System.out.println(apple.isFresh);
+	verifyFresh(apple.isFresh);
+	
+	
+	apple1.simpleMessage();
+	System.out.println(apple1.isFresh);
+	verifyFresh(apple1.isFresh);
+
+	}
+	
+	private static void verifyFresh( boolean isFresh) {
+		if(isFresh) {
+			System.out.println("Fresh fruit");
+		}
+		else {
+			System.out.println("Bad fruit");
+		}
+	}
+	
+	
+	
+	
+	/*
+	private static String name = "Global Variable";  // static, can be called anywhere in the class,
+														// basically .h header file of a C++ class /* 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("Global Variable " + name);
@@ -36,5 +66,6 @@ public class Main {
 		int c = a+b;
 		return c;
 	}
+	*/
 	
 }
