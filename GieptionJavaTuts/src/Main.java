@@ -2,11 +2,29 @@ public class Main {
 
 	public static void main(String[] args) {
 
+	Book BookBoy = new Book();
+	BookBoy.tellStory();
 		
-	Book bookman = new Book(" C++ is the best");
+	Book bookman = new Book(" Unreal Engine and C++ are the best");
 	bookman.tellStory();
+	
+	int size = 10;
+	
+	int array_One[] = {1,2,3,4,5};
+	int array_two[] = new int[size]; //allocate 10 container in array
+	
+	for (int i =0; i<size; i++) {
+		array_two[i] = i;
+	}
 
-
+	for (int i =0; i<size; i++) {
+		System.out.println("Position "+i+" :"+array_two[i]);
+	}
+	
+	for (int i=0; i<array_One.length; i++) {
+		System.out.println("Position "+i+" :"+array_One[i]);	
+	}
+	
 /*	Apple apple = new Apple();
 	Apple apple1 = new Apple();
 	

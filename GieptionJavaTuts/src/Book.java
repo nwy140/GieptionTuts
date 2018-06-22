@@ -1,10 +1,14 @@
 public class Book {
 	private String bookName;
 	
+	public Book() {
+		System.out.println("New Book");
+	}
+	
 	public Book(String bookName) {
 		super();
 		this.bookName = bookName;
-		System.out.println("New Book");
+		System.out.println("New Book with Name");
 	}
 
 	private void setBook(String bookName) {
