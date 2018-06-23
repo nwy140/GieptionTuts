@@ -1,6 +1,7 @@
 package com.silentwolfstudios.user.interactor;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,10 +29,16 @@ public class MainActivity extends AppCompatActivity { // ctrl  + click is f12 in
         btStartAdventure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Name = etName.getText().toString();
-                Toast.makeText(MainActivity.this, Name, Toast.LENGTH_SHORT).show();
+                String name = etName.getText().toString();
+                Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(MainActivity.this, StoryActivity.class);  //start new Activity via Intent
+                i.putExtra("Name" + name);  // store data in Intent //bundle means multiple data bundled to send
+                startActivity(i);
             }
         });
+
+
+        ivMainTitle = findViewById(R.id.ivMainTitle);
         ivMainTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,6 +56,4 @@ public class MainActivity extends AppCompatActivity { // ctrl  + click is f12 in
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
-
-
 }
