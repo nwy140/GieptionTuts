@@ -7,33 +7,45 @@
     tools:context="MainActivity">
 
     <ImageView
+        android:id="@+id/ivMainTitle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/guideline3"
-        />
-        <!-- layout height to 0dp, so imageview overshoot and fill in most of layout, but constrainted bottom to guideline-->
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Testing"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/main_title"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineHorizontal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <!--parent of TextView is constraint layout, constraint layout parent is device screen-->
+    <!-- layout height to 0dp, so imageview overshoot and fill in most of layout, but constrainted bottom to guideline-->
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Please Insert your Name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guidelineHorizontal"
+
+        />
+
+    <Button
+        android:id="@+id/btStartAdventure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/start_your_adventure"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+       />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline3"
+        android:id="@+id/guidelineHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.7"
-        />
+        app:layout_constraintGuide_percent="0.7" />
+
+
 
 </android.support.constraint.ConstraintLayout>
