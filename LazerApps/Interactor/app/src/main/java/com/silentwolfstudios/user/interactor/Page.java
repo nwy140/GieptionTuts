@@ -33,6 +33,7 @@ public class Page {
         this.imageId = imageId;
         this.choice1 = choice1;
         this.choice2 = choice2;
+        isFinalPage = false;
     }
 
     public int getTextId() {
