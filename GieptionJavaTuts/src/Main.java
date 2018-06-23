@@ -27,8 +27,13 @@ public class Main {
 		System.out.println("Position "+i+" :"+array_One[i]);	
 	}
 	
-	Student Kid001 = new Student();
-	Kid001.humanLifeStyle();
+	Student student001 = new Student();
+	student001.humanLifeStyle();
+	student001.money();
+	
+	Teacher teacher001 = new Teacher();
+	teacher001.humanLifeStyle();
+	teacher001.money();
 	
 /*	Apple apple = new Apple();
 	Apple apple1 = new Apple();
