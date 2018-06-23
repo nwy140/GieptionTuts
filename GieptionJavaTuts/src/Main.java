@@ -27,6 +27,9 @@ public class Main {
 		System.out.println("Position "+i+" :"+array_One[i]);	
 	}
 	
+	Student Kid001 = new Student();
+	Kid001.humanLifeStyle();
+	
 /*	Apple apple = new Apple();
 	Apple apple1 = new Apple();
 	

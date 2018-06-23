@@ -15,7 +15,7 @@ public class Stationery {
 		price = PricetoSet;
 		
 	}
-	public void setLocation(double location) {
+	public void setLocation(String location) {
 		this.location = location;
 		
 	}
