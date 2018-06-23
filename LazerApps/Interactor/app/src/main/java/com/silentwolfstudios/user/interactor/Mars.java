@@ -1,0 +1,36 @@
+package com.silentwolfstudios.user.interactor;
+
+//Mars is representing the entire layout //set everything in this class mvp // display food
+public class Mars {
+    private Page[] pages;
+
+    public Mars() {
+        pages[0] = new Page(R.string.page0,
+                R.drawable.page0,
+                new Choice(R.id.btStoryChoice1,2),
+                new Choice(R.string.page0_choice2,3));
+
+        pages[1] = new Page(R.string.page1,
+                R.drawable.page1,
+                new Choice(R.id.btStoryChoice1,3),
+                new Choice(R.string.page1_choice2,4));
+
+        pages[2] = new Page(R.string.page2,
+                R.drawable.page2,
+                new Choice(R.id.btStoryChoice1,4),
+                new Choice(R.string.page2_choice2,6));
+
+        pages[3] = new Page(R.string.page3,
+                R.drawable.page3,
+                new Choice(R.id.btStoryChoice1,4),
+                new Choice(R.string.page3_choice2,5));
+
+        pages[4] = new Page(R.string.page4,
+                R.drawable.page4,
+                new Choice(R.id.btStoryChoice1,5),
+                new Choice(R.string.page4_choice2,6));
+
+        pages[5] = new Page(R.string.page5,R.drawable.page5);
+        pages[6] = new Page(R.string.page6,R.drawable.page6);
+    }
+}

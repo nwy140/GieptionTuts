@@ -16,4 +16,6 @@ public class StoryActivity extends AppCompatActivity {
     String name = i.getStringExtra(getResources().getString(R.string.key)); //get string from key
     Toast.makeText(this, name , Toast.LENGTH_SHORT).show();
     }
+
+    //mvp model view presenter //3 models // each rows eg. button tv and iv used for navigation // entire layout is third model
 }
