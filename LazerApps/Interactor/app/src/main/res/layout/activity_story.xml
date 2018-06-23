@@ -4,69 +4,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.StoryActivity">
+    tools:context=".StoryActivity">
 
-    <Button
-        android:id="@+id/choice2Button"
-        android:layout_width="match_parent"
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineHorizontal"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:text="@string/page0_choice2"
-        android:background="@android:color/white"
-        android:textColor="#3A8AEC"
-        android:textSize="16sp"/>
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"
+        />
+    <!--Helper for ivStoryScene-->
 
-    <Button
-        android:id="@+id/choice1Button"
-        android:layout_width="match_parent"
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineHorizontal2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/choice2Button"
-        tools:text="@string/page0_choice1"
-        android:background="@android:color/white"
-        android:textColor="#3A8AEC"
-        android:textSize="16sp"/>
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
 
     <ScrollView
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:fillViewport="true"
-        app:layout_constraintBottom_toTopOf="@+id/choice1Button"
+
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@android:color/white">
-
+        app:layout_constraintBottom_toTopOf="@id/btStoryChoice1"
+        >
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <!--tools:src is for temporary showing only-->
 
             <ImageView
-                android:id="@+id/pageImageView"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:adjustViewBounds="true"
-                android:scaleType="fitXY"
-                tools:src="@drawable/page0" />
-
-            <TextView
-                android:id="@+id/storyTextView"
+                android:id="@+id/ivStoryScene"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/page0"
+                />
+
+            <TextView
+                android:id="@+id/tvStoryText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
                 android:lineSpacingExtra="5dp"
-                android:textSize="16sp"
-                tools:text="@string/page0" />
+                android:text="@string/page0"
+                android:textSize="16dp"
+                />
 
         </LinearLayout>
-
     </ScrollView>
+    <Button
+        android:id="@+id/btStoryChoice1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/page0_choice1"
+        android:textColor="@color/colorAccent"
 
+        app:layout_constraintBottom_toTopOf="@+id/btStoryChoice2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <Button
+        android:id="@+id/btStoryChoice2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        android:text="@string/page0_choice2"/>
 
 </android.support.constraint.ConstraintLayout>
