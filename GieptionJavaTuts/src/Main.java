@@ -5,7 +5,6 @@ public class Main {
 	Book BookBoy = new Book();
 	BookBoy.tellStory();
 	
-		
 	Book bookman = new Book(" Unreal Engine and C++ are the best");
 	bookman.tellStory();
 	bookman.showPriceAndLocation(bookman.getPrice(), bookman.getLocation());
@@ -28,11 +27,13 @@ public class Main {
 	}
 	
 	Student student001 = new Student();
+	student001.studentResult();
 //	student001.humanLifeStyle();
 //	student001.money();
 	Student student002 = new Student(99999);
+	student002.result = 100;
 	student002.studentResult();
-	student002.result = 9999;
+
 
 	Teacher teacher001 = new Teacher();
 //	teacher001.humanLifeStyle();

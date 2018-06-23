@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.StoryActivity">
+
+    <Button
+        android:id="@+id/choice2Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="@string/page0_choice2"
+        android:background="@android:color/white"
+        android:textColor="#3A8AEC"
+        android:textSize="16sp"/>
+
+    <Button
+        android:id="@+id/choice1Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/choice2Button"
+        tools:text="@string/page0_choice1"
+        android:background="@android:color/white"
+        android:textColor="#3A8AEC"
+        android:textSize="16sp"/>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/choice1Button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--tools:src is for temporary showing only-->
+
+            <ImageView
+                android:id="@+id/pageImageView"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                tools:src="@drawable/page0" />
+
+            <TextView
+                android:id="@+id/storyTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:lineSpacingExtra="5dp"
+                android:textSize="16sp"
+                tools:text="@string/page0" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>
