@@ -76,9 +76,7 @@ public class StoryActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     loadPage(page.getChoice1().getPageNumber());
-                    while (!pageStack.empty()){
-                         
-                    }
+
                 }
             });
 
@@ -104,7 +102,8 @@ public class StoryActivity extends AppCompatActivity {
         } else{
             // [0 1 2]
             loadPage(pageStack.pop()); // pop returns what is removed // pop returns what is just removed from page// remove page 1 and leave it as 0
-        }
+        }\
+
     }
     //mvp model view presenter //3 models // each rows eg. button tv and iv used for navigation // entire layout is third model
 }
