@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity { // ctrl  + click is f12 in
                 String name = etName.getText().toString();
                 Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(MainActivity.this, StoryActivity.class);  //start new Activity via Intent
-                i.putExtra("Name" + name);  // store data in Intent //bundle means multiple data bundled to send
+                i.putExtra(getResources().getString(R.string.key) , name);  // store data in intent with string "name" gotten from key // data passed in Intent //bundle means multiple data bundled to send
                 startActivity(i);
             }
         });
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity { // ctrl  + click is f12 in
     }
 
     private  void hideKeyboard(View view){
-        view =getCurrentFocus();
+        view = getCurrentFocus();
         if (view != null) {
             InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
