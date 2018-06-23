@@ -1,5 +1,9 @@
 public class Teacher extends Person implements LifeStyle{
 
+	public  void Teacher() {
+		
+	}
+	
 	@Override
 	public void humanLifeStyle() {
 		// TODO Auto-generated method stub

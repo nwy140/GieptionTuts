@@ -1,6 +1,12 @@
 
 public class Person {
-	
+		public Person() {
+			System.out.println("person here");
+		}
+		public Person (int i) {
+			System.out.println("person here : "+i);	
+		}
+
 		private int id;
 		private String name;
 		
