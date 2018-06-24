@@ -19,8 +19,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
-    double latitude = 3.1280456;
-    double longtitude = 101.7543843;
+    double latitude = 3.137466;
+    double longtitude = 101.60980500000005;
     String apiKey;
     String forecast;
 
