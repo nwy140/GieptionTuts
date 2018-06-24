@@ -13,7 +13,10 @@ import android.widget.Toast;
 
 import java.util.Stack;
 
+
 public class StoryActivity extends AppCompatActivity {
+
+
 
     private Mars mars;
     private String name;
