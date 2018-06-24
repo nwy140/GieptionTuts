@@ -21,52 +21,58 @@ public class MainActivity extends AppCompatActivity {
     String apiKey ;
     String forecast;
 
+    TextView tvWeather;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         apiKey = getResources().getString(R.string.apikey);
         forecast = "https://api.darksky.net/forecast/" + apiKey + "/" + latitude + "," + longtitude;
+        tvWeather = findViewById(R.id.tvWeather);
 
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(forecast).build();
         Call call = client.newCall(request);
         call.enqueue(new Callback() {
                          @Override
-                         public void onFailure(Call call, IOException e) {
-
+                         public void onFailure(Call call, IOException e){
+                             alertDialog();
                          }
 
                          @Override
                          public void onResponse(Call call, Response response) throws IOException {
                             try{
+                                if (response.body()!=null) {
+                                    Log.d("Testing", response.body().string());
+                                }
+
                                 if(response.isSuccessful()){
                                     Log.d("Response", "Response is successful"); // this is running in background thread thus we can't kust use Toast
                                     runOnUiThread(new Runnable() { // tell the UI thread to call from the background thread
                                         @Override
                                         public void run() { // Toast
-                                            Toast.makeText(MainActivity.this, "Hello World-", Toast.LENGTH_SHORT).show();
-
+                                            tvWeather.setText("Testing");
                                         }
                                     });
                                 }
                                 else{
                                     Log.e("Response", "Response not successful");
-                                }
-                                if (response.body()!=null) {
-                                    Log.d("Testing", response.body().string());
-
 
                                 }
                             }
                             catch (IOException e){
                                 Log.e("Error Happenning", "IOException error");
+
                             }
                          }
                      });
+    }
 
+    private void alertDialog() {
+        AlertDialogFragment dialog = new AlertDialogFragment();  //dialog fragment is the dialog that shows up in the activity
+        dialog.show(getFragmentManager(), "errorDialog");
     }
 }
