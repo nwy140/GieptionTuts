@@ -24,7 +24,9 @@ public class MainActivity extends AppCompatActivity {
     String apiKey;
     String forecast;
 
-    private TextView tvWeather;
+    private TextView tvWeatherSummary;
+    private TextView tvWeatherTemp;
+    private TextView tvWeatherWindSpeed;
     private CurrentWeather weather;
 
     @Override
@@ -34,7 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
         apiKey = getResources().getString(R.string.apikey);
         forecast = "https://api.darksky.net/forecast/" + apiKey + "/" + latitude + "," + longtitude;
-        tvWeather = findViewById(R.id.tvWeather);
+        tvWeatherSummary = findViewById(R.id.tvWeatherSummary);
+        tvWeatherTemp = findViewById(R.id.tvWeatherTemp);
+        tvWeatherWindSpeed = findViewById(R.id.tvWeatherWindSpeed);
 
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(forecast).build();
@@ -57,7 +61,9 @@ public class MainActivity extends AppCompatActivity {
                         runOnUiThread(new Runnable() { // tell the UI thread to call from the background thread
                             @Override
                             public void run() { // Toast
-                                tvWeather.setText(weather.getSummary());
+                                tvWeatherSummary.setText("Summary: " + weather.getSummary());
+                                tvWeatherTemp.setText("Temperature: " + weather.getTemperature());
+                                tvWeatherWindSpeed.setText("WindSpeed: " + weather.getWindSpeed());
                             }
                         });
                     } else {

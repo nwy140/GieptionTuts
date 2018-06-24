@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/tvWeather"
+        android:id="@+id/tvWeatherSummary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Weather!"
@@ -15,5 +15,25 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvWeatherTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Temperature!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvWeatherSummary" />
+
+    <TextView
+        android:id="@+id/tvWeatherWindSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="WindSpeed!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvWeatherTemp" />
 
 </android.support.constraint.ConstraintLayout>
