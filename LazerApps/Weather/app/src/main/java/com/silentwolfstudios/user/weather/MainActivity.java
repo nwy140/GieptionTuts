@@ -49,14 +49,15 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 try {
                     if (response.body() != null) {
-                       getCurrentWeather(response.body().string()); // calling response body .string twice crashes the app, you can't request the body twice
+                       weather = getCurrentWeather(response.body().string()); // calling response body .string twice crashes the app, you can't request the body twice
+
                     }
                     if (response.isSuccessful()) {
                         Log.d("Response", "Response is successful"); // this is running in background thread thus we can't kust use Toast
                         runOnUiThread(new Runnable() { // tell the UI thread to call from the background thread
                             @Override
                             public void run() { // Toast
-                                tvWeather.setText("Testing");
+                                tvWeather.setText(weather.getSummary());
                             }
                         });
                     } else {
@@ -76,8 +77,14 @@ public class MainActivity extends AppCompatActivity {
         JSONObject forecast = new JSONObject(jsonData);
         double lat = forecast.getDouble("latitude"); // get latitude's data from JSONOBject passed in
         Log.d("lat value", Double.toString(lat));
+        JSONObject current = forecast.getJSONObject("currently");
 
-        return null;
+        CurrentWeather curr = new CurrentWeather();
+        curr.setWindSpeed(current.getDouble("windSpeed")); // set windspeed
+        curr.setTemperature(current.getDouble("temperature"));
+        curr.setSummary(current.getString("summary"));
+
+        return curr;
     }
 
     private void alertDialog() {
