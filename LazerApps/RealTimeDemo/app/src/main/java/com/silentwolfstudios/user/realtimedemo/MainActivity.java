@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements ValueEventListene
 
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
-        if(dataSnapshot.getValue(String.class)!=null){
+        if(dataSnapshot.getValue(String.class)!=null){ //get any data that is changed, then set tvTitle to it
             String key = dataSnapshot.getKey();
             if(key.equals("content")){
                 String value = dataSnapshot.getValue(String.class); // get data from firebase
@@ -62,7 +62,11 @@ public class MainActivity extends AppCompatActivity implements ValueEventListene
     protected void onStart() {
         super.onStart();
         contentReference.addValueEventListener(this); //setup this ValueListener on this interface
-
-
     }
 }
+
+//read documentation to create something like this
+// time: 00:00::00
+//      msg_content: "aldawdwa"
+// time: 00:00::01
+//      msg_content: "dwawaddwaa
