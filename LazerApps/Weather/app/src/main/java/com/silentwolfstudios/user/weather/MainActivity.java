@@ -3,6 +3,7 @@ package com.silentwolfstudios.user.weather;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     String apiKey ;
     String forecast;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
         apiKey = getResources().getString(R.string.apikey);
         forecast = "https://api.darksky.net/forecast/" + apiKey + "/" + latitude + "," + longtitude;
-
 
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(forecast).build();
@@ -43,19 +45,21 @@ public class MainActivity extends AppCompatActivity {
                             try{
                                 if(response.isSuccessful()){
                                     Log.d("Response", "Response is successful"); // this is running in background thread thus we can't kust use Toast
+                                    runOnUiThread(new Runnable() { // tell the UI thread to call from the background thread
+                                        @Override
+                                        public void run() { // Toast
+                                            Toast.makeText(MainActivity.this, "Hello World-", Toast.LENGTH_SHORT).show();
 
+                                        }
+                                    });
                                 }
                                 else{
                                     Log.e("Response", "Response not successful");
                                 }
                                 if (response.body()!=null) {
                                     Log.d("Testing", response.body().string());
-                                    runOnUiThread(new Runnable() { // tell the UI thread to call from the background thread
-                                        @Override
-                                        public void run() { // Toast
-                                            Toast.makeText(MainActivity.this, "Hello World-", Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
+
+
                                 }
                             }
                             catch (IOException e){
@@ -63,5 +67,6 @@ public class MainActivity extends AppCompatActivity {
                             }
                          }
                      });
+
     }
 }
