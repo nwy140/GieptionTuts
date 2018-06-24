@@ -14,8 +14,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
-    double latitude = 3.128;
-    double longtitude = 101.7543;
+    double latitude = 3.1280456;
+    double longtitude = 101.7543843;
     String apiKey ;
     String forecast;
 
@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        apiKey = getResources().getString(R.string.app_name);
-        forecast = "https://api.darksky.net/forecast/" + apiKey + "/" + Double.toString(latitude) + "," +Double.toString(longtitude);
+        apiKey = getResources().getString(R.string.apikey);
+        forecast = "https://api.darksky.net/forecast/" + apiKey + "/" + latitude + "," + longtitude;
 
 
         OkHttpClient client = new OkHttpClient();
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                          public void onResponse(Call call, Response response) throws IOException {
                             try{
                                 if(response.isSuccessful()){
-                                    Log.d("Response", "Response is successful");
+                                    Log.d("Response", "Response is successful"); // this is running in background thread thus we can't kust use Toast
 
                                 }
                                 else{
@@ -57,6 +57,4 @@ public class MainActivity extends AppCompatActivity {
                          }
                      });
     }
-
-
 }
