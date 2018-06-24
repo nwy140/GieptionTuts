@@ -2,6 +2,7 @@ package com.silentwolfstudios.user.realtimedemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements ValueEventListene
     private TextView tvTitle;
     private EditText etName;
     private Button btEnter;
-    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance(); //setup Firebasedatabase Structure
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance(); //setup Firebasedatabase Structure //remember to setup your database in firebase first
     private DatabaseReference rootReference = firebaseDatabase.getReference(); // reference to root of database
     private DatabaseReference contentReference = rootReference.child("content"); // reference to child of root of database
 
@@ -29,6 +30,14 @@ public class MainActivity extends AppCompatActivity implements ValueEventListene
          tvTitle = findViewById(R.id.tvTitle);
          etName = findViewById(R.id.etName);
          btEnter = findViewById(R.id.btEnter);
+
+         btEnter.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 String content = etName.getText().toString();
+                 contentReference.setValue(content);
+             }
+         });
     }
 
     @Override
@@ -38,6 +47,16 @@ public class MainActivity extends AppCompatActivity implements ValueEventListene
 
     @Override
     public void onCancelled(DatabaseError databaseError) {
+
+    }
+
+    //LifeCycle methods // OnCreate // OnStart calls right after OnCreate// OnDestroy
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        contentReference.addValueEventListener(this); //setup this ValueListener on this interface
+
 
     }
 }
