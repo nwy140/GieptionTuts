@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="darksky_api_key">2a407dd06fba2a793b52b85bad1c6683</string>
+
+
+</resources>
