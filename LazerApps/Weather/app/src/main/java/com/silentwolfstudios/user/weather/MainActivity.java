@@ -3,6 +3,7 @@ package com.silentwolfstudios.user.weather;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -49,6 +50,12 @@ public class MainActivity extends AppCompatActivity {
                                 }
                                 if (response.body()!=null) {
                                     Log.d("Testing", response.body().string());
+                                    runOnUiThread(new Runnable() { // tell the UI thread to call from the background thread
+                                        @Override
+                                        public void run() { // Toast
+                                            Toast.makeText(MainActivity.this, "Hello World-", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
                                 }
                             }
                             catch (IOException e){
