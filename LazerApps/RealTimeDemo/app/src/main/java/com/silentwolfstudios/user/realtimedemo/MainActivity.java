@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements ValueEventListene
     private EditText etName;
     private Button btEnter;
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance(); //setup Firebasedatabase Structure
-    private DatabaseReference rootReference = FirebaseDatabase.getReference(); // reference to root of database
+    private DatabaseReference rootReference = firebaseDatabase.getReference(); // reference to root of database
     private DatabaseReference contentReference = rootReference.child("content"); // reference to child of root of database
 
     @Override
