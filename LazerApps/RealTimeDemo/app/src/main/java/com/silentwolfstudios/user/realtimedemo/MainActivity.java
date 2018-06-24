@@ -35,14 +35,20 @@ public class MainActivity extends AppCompatActivity implements ValueEventListene
              @Override
              public void onClick(View v) {
                  String content = etName.getText().toString();
-                 contentReference.setValue(content);
+                 contentReference.setValue(content); // get whatever in etName and send it to Firebase Database
              }
          });
     }
 
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
-
+        if(dataSnapshot.getValue(String.class)!=null){
+            String key = dataSnapshot.getKey();
+            if(key.equals("content")){
+                String value = dataSnapshot.getValue(String.class); // get data from firebase
+                tvTitle.setText(value);
+            }
+        }
     }
 
     @Override
